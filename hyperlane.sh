@@ -12,8 +12,9 @@ function install_node() {
 	
 	# 安装 Foundry 并启动 foundryup
 	curl -L https://foundry.paradigm.xyz | bash
+	# 问题！运行了环境变量还是找不到foundryup命令
 	source ~/.bashrc
-	foundryup
+	$HOME/.foundry/bin/foundryup
 	
 	# 安装 Rust 和更新到稳定版
 	sudo snap install rustup --classic
