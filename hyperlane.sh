@@ -42,7 +42,9 @@ function install_node() {
 	mkdir ~/.npm-global
 	npm config set prefix '~/.npm-global'
 	export PATH=~/.npm-global/bin:$PATH
+	echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
 	npm install -g @hyperlane-xyz/cli@latest
+	source ~/.bashrc
 
 	git clone https://github.com/hyperlane-xyz/hyperlane-monorepo.git
 	cd $HOME/hyperlane-monorepo/rust/agents/validator
