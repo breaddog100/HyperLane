@@ -84,8 +84,7 @@ function start_node(){
 # 查看日志
 function view_logs(){
 	# 获取当前运行的screen会话列表
-	screens=$(screen -ls | grep -oP '\t\K[^\t]+' | sort)
-	
+	screens=$(screen -ls | grep -oP '\t\K[\d]+\.[^\s]+')
 	# 检查是否有screen会话
 	if [ -z "$screens" ]; then
 	    echo "没有找到正在运行的screen会话。"
@@ -119,7 +118,7 @@ function chains_list(){
 # 停止节点
 function stop_node(){
 	# 获取当前运行的screen会话列表
-	screens=$(screen -ls | grep -oP '\t\K[^\t]+' | sort)
+	screens=$(screen -ls | grep -oP '\t\K[\d]+\.[^\s]+')
 	
 	# 检查是否有screen会话
 	if [ -z "$screens" ]; then
