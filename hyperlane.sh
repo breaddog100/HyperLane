@@ -55,8 +55,8 @@ function install_node() {
 
 # 启动节点
 function start_node(){
-	read -p "请输入AWS秘钥:" aws_access_key_id
-	read -p "请输入AWS秘密的秘钥:" aws_secret_access_key
+	read -p "请输入IAM秘钥:" aws_access_key_id
+	read -p "请输入IAM秘密访问秘钥:" aws_secret_access_key
 	read -p "请输入链名:" chian_name
 	read -p "请输入AWS区域(如us-west-1):" region
 	read -p "请输入AWS KMS名称:" kms_name
@@ -67,7 +67,7 @@ function start_node(){
 	export AWS_SECRET_ACCESS_KEY=$aws_secret_access_key
 	cd $HOME/hyperlane-monorepo/rust
 	./target/release/validator \
-	  --db /hyperlane_db_$chian_name \
+	  --db $HOME/hyperlane_db_$chian_name \
 	  --originChainName $chian_name \
 	  --reorgPeriod 1 \
 	  --validator.region $region \
